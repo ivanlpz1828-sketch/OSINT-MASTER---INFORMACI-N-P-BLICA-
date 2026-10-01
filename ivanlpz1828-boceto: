@@ -1,0 +1,878 @@
+cat > ~/push-github-final.sh <<'FINAL'
+#!/data/data/com.termux/files/usr/bin/bash
+
+set -u
+
+GREEN='\033[0;92m'
+RED='\033[0;91m'
+YELLOW='\033[0;93m'
+CYAN='\033[0;96m'
+RESET='\033[0m'
+
+echo -e "${CYAN}════════════════════════════════════════════════════════${RESET}"
+echo -e "${GREEN}SUBIR A GITHUB - ivanlpz1828-boceto${RESET}"
+echo -e "${CYAN}════════════════════════════════════════════════════════${RESET}"
+echo
+
+PROJECT="$HOME/termux-scripts"
+
+if [ ! -d "$PROJECT" ]; then
+    echo -e "${RED}No existe: $PROJECT${RESET}"
+    exit 1
+fi
+
+cd "$PROJECT"
+
+echo -e "${YELLOW}Configurando Git...${RESET}"
+git config user.name "ivanlpz1828"
+git config user.email "iivanlpz1828@gmail.com"
+
+echo -e "${YELLOW}Corrigiendo rama...${RESET}"
+git branch -M main
+
+echo -e "${YELLOW}Añadiendo archivos...${RESET}"
+git add .
+
+echo -e "${YELLOW}Haciendo commit...${RESET}"
+git commit -m "🔥 Te la bañaste con el diseño - OSINT + VWARP" || true
+
+echo
+read -rsp "Pega tu token de GitHub: " TOKEN
+echo
+
+git remote remove origin 2>/dev/null || true
+git remote add origin "https://ivanlpz1828:${TOKEN}@github.com/ivanlpz1828/ivanlpz1828-boceto.git"
+
+echo
+echo -e "${YELLOW}Subiendo...${RESET}"
+
+if git push -u origin main 2>/dev/null; then
+    echo
+    echo -e "${GREEN}════════════════════════════════════════════════════════${RESET}"
+    echo -e "${GREEN}✅ ¡SUBIDO EXITOSAMENTE!${RESET}"
+    echo -e "${GREEN}════════════════════════════════════════════════════════${RESET}"
+    echo
+    echo "Repositorio: https://github.com/ivanlpz1828/ivanlpz1828-boceto"
+    echo
+else
+    echo
+    echo -e "${RED}❌ Error al subir${RESET}"
+    echo "Comprueba:"
+    echo "1. Token válido"
+    echo "2. Repositorio creado en GitHub"
+    echo "3. Nombre: ivanlpz1828-boceto"
+fi
+
+unset TOKEN
+
+FINAL
+
+chmod +x ~/push-github-final.sh
+bash ~/push-github-final.sh
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+cat > ~/termux-scripts/banner.sh << 'EOF'
+#!/data/data/com.termux/files/usr/bin/bash
+
+# ASCII Art Epic Banner
+
+RED='\033[0;91m'
+GREEN='\033[0;92m'
+YELLOW='\033[0;93m'
+BLUE='\033[0;94m'
+MAGENTA='\033[0;95m'
+CYAN='\033[0;96m'
+WHITE='\033[0;97m'
+RESET='\033[0m'
+
+clear
+
+echo -e "${RED}"
+cat << 'ART'
+
+
+
+
+    _____ _____ _____ _____ _____ _____ _____ 
+   |_   _|  ___|  _  |  _  |_   _|  _  |  _  |
+     | | | |_  | | | | |_| | | | | |_| | | | |
+     | | |  _| | | | |  _  | | | |  _  | | | |
+     | | | |_  \ \_/ / | | | | | | | | | |_| |
+     |_| |___| \_____/\_| |_/ |_| |_| |_|_____|
+                                                
+    _____ _____ _____ _____ _____ _____ _____ 
+   / ____| ___ | ___ |  _  | ___ |_   _|  ___|
+  / /    | |_| || |_|| | | || |_  | | | |___ \
+  \ \    |  _  ||  _  | | | ||  _| | | |  ___) |
+   \ \___| | | || | | \ \_/ /| |   | | | |____/
+    \____/_| |_/|_| |_|\_____/ \_|   |_| |_|
+ART
+
+echo -e "${CYAN}"
+cat << 'ART'
+╔═══════════════════════════════════════════════════════════════╗
+║                                                               ║
+║                   ⚡ TE LA BAÑASTE CON EL DISEÑO ⚡           ║
+║                                                               ║
+║              🔥 TERMUX SCRIPTS - OSINT + VWARP 🔥             ║
+║                                                               ║
+║            Información Pública + Auto-Conexión VPN             ║
+║                                                               ║
+╚═══════════════════════════════════════════════════════════════╝
+ART
+
+echo -e "${GREEN}"
+cat << 'ART'
+          ___
+         /   \___
+        / OSINT \___
+       /___________\
+          |  |  |
+       ___|__|__|___
+      |_   VWARP  _|
+        |_________|
+          |     |
+       ___|_____|___
+      |_  SCRIPTS  |
+        |_________|
+
+ART
+
+echo -e "${MAGENTA}"
+cat << 'ART'
+    ███████╗ ██████╗ ██╗███████╗████████╗███████╗██████╗ 
+    ██╔════╝██╔════╝ ██║██╔════╝╚══██╔══╝██╔════╝██╔══██╗
+    █████╗  ██║  ███╗██║███████╗   ██║   █████╗  ██║  ██║
+    ██╔══╝  ██║   ██║██║╚════██║   ██║   ██╔══╝  ██║  ██║
+    ██║     ╚██████╔╝██║███████║   ██║   ███████╗██████╔╝
+    ╚═╝      ╚═════╝ ╚═╝╚══════╝   ╚═╝   ╚══════╝╚═════╝ 
+                                                          
+ART
+
+echo -e "${YELLOW}"
+cat << 'ART'
+   ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+   ┃  > OSINT MASTER      │ Información Pública     ┃
+   ┃  > VWARP AUTO        │ Auto-Conexión VPN       ┃
+   ┃  > TERMUX SETUP      │ Configuración Completa  ┃
+   ┃  > GITHUB READY      │ Listo para Subir        ┃
+   ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+ART
+
+echo -e "${RED}"
+cat << 'ART'
+    ╔════════════════════════════════════════════════════╗
+    ║                                                    ║
+    ║          🚀 LISTO PARA GITHUB 🚀                  ║
+    ║                                                    ║
+    ║  git push origin main                             ║
+    ║                                                    ║
+    ╚════════════════════════════════════════════════════╝
+ART
+
+echo -e "${CYAN}"
+cat << 'ART'
+    ᚦ ᚠ ᚢ ᚤ ᚥ ᚦ ᚠ ᚢ ᚤ ᚥ ᚦ ᚠ ᚢ ᚤ ᚥ
+    
+    "Con gran poder viene gran responsabilidad"
+    
+    Solo información pública, sin hackear nada
+    
+    ᚥ ᚤ ᚢ ᚠ ᚦ ᚥ ᚤ ᚢ ᚠ ᚦ ᚥ ᚤ ᚢ ᚠ ᚦ
+ART
+
+echo -e "${GREEN}"
+cat << 'ART'
+      █████╗ ██╗     ███████╗███╗   ███╗██╗██╗   ██╗███╗   ███╗
+     ██╔══██╗██║     ██╔════╝████╗ ████║██║██║   ██║████╗ ████║
+     ███████║██║     █████╗  ██╔████╔██║██║██║   ██║██╔████╔██║
+     ██╔══██║██║     ██╔══╝  ██║╚██╔╝██║██║██║   ██║██║╚██╔╝██║
+     ██║  ██║███████╗███████╗██║ ╚═╝ ██║██║╚██████╔╝██║ ╚═╝ ██║
+     ╚═╝  ╚═╝╚══════╝╚══════╝╚═╝     ╚═╝╚═╝ ╚═════╝ ╚═╝     ╚═╝
+ART
+
+echo -e "${WHITE}"
+echo ""
+
+EOF
+
+chmod +x ~/termux-scripts/banner.sh
+bash ~/termux-scripts/banner.sh
+cat > ~/termux-scripts/README.md << 'EOF'
+_____ _____ _____ _____ _____ _____ _____ 
+/ | ___ | ___ | _ | ___ | | __ | / / | | | || | || | | || | | | | | _
+\ \ | _ || _ | | | || | | | | ) | \ _ | | | || | | \ _/ /| | | | | | / _ / | | /| | | |_ __ / _| | | |_|
+_____ _____ _____ _____ _____ _____ _____ 
+
+# ⚡ TE LA BAÑASTE CON EL DISEÑO ⚡
+
+Colección **ÉPICA** de scripts para Termux con información pública, auto-conexión VPN y configuración profesional.
+
+---
+
+## 🔥 Características
+
+✅ **OSINT Master** - Búsqueda de información pública  
+✅ **VWARP Auto** - Auto-conexión + Detección de firewall  
+✅ **Termux Setup** - Configuración completa  
+✅ **GitHub Ready** - Listo para producción  
+✅ **100% Legal** - Sin hackear nada  
+
+---
+
+## 📁 Estructura
+
+---
+
+## 🚀 Instalación Rápida
+
+```bash
+# Clonar repositorio
+git clone https://github.com/TU_USUARIO/termux-scripts.git
+cd termux-scripts
+
+# Ver banner
+bash banner.sh
+
+# Ejecutar scripts
+bash osint/osint-master.sh
+bash vwarp/vwarp-install.sh
+bash termux-setup/setup.sh
+bash osint/osint-master.sh
+bash vwarp/vwarp-install.sh
+bash termux-setup/setup.sh
+head -50 osint/osint-master.sh
+head -50 vwarp/vwarp-install.sh
+cd termux-scripts
+git pull origin main
+    ███████╗ ██████╗ ██╗███████╗████████╗███████╗██████╗ 
+    ██╔════╝██╔════╝ ██║██╔════╝╚══██╔══╝██╔════╝██╔══██╗
+    █████╗  ██║  ███╗██║███████╗   ██║   █████╗  ██║  ██║
+    ██╔══╝  ██║   ██║██║╚════██║   ██║   ██╔══╝  ██║  ██║
+    ██║     ╚██████╔╝██║███████║   ██║   ███████╗██████╔╝
+    ╚═╝      ╚═════╝ ╚═╝╚══════╝   ╚═╝   ╚══════╝╚═════╝ 
+
+
+---
+
+## **Subir todo a GitHub:**
+
+```bash
+cd ~/termux-scripts
+
+git add .
+git commit -m "🔥 Te la bañaste con el diseño - OSINT + VWARP + Banner Épico"
+git push origin main
+
+cat > ~/install-all-scripts.sh <<'EOF'
+#!/data/data/com.termux/files/usr/bin/bash
+
+# ═══════════════════════════════════════════════════════════════════════════
+#         INSTALADOR MAESTRO - GUARDAR Y ORGANIZAR TODOS LOS SCRIPTS
+# ═══════════════════════════════════════════════════════════════════════════
+
+RED='\033[0;91m'
+GREEN='\033[0;92m'
+YELLOW='\033[0;93m'
+BLUE='\033[0;94m'
+MAGENTA='\033[0;95m'
+CYAN='\033[0;96m'
+RESET='\033[0m'
+
+SCRIPTS_DIR="$HOME/.scripts"
+
+header() {
+    clear
+    echo -e "${CYAN}════════════════════════════════════════════════════════════${RESET}"
+    echo -e "${GREEN}INSTALADOR MAESTRO DE SCRIPTS${RESET}"
+    echo -e "${CYAN}════════════════════════════════════════════════════════════${RESET}"
+    echo
+}
+
+create_dirs() {
+    mkdir -p "$SCRIPTS_DIR"
+    mkdir -p "$SCRIPTS_DIR/vwarp"
+    mkdir -p "$SCRIPTS_DIR/osint"
+    mkdir -p "$SCRIPTS_DIR/termux-setup"
+    mkdir -p "$SCRIPTS_DIR/herramientas"
+    echo -e "${GREEN}[✓] Directorios creados${RESET}"
+}
+
+# ═══════════════════════════════════════════════════════════════════════════
+# SCRIPT 1: OSINT MASTER
+# ═══════════════════════════════════════════════════════════════════════════
+
+create_osint_master() {
+    echo -e "${CYAN}[→] Creando OSINT Master...${RESET}"
+    
+    cat > "$SCRIPTS_DIR/osint/osint-master.sh" << 'OSINT'
+#!/data/data/com.termux/files/usr/bin/bash
+set -u
+
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+YELLOW='\033[0;33m'
+MAGENTA='\033[0;95m'
+CYAN='\033[0;96m'
+RESET='\033[0m'
+
+check_termux() {
+  if ! command -v pkg >/dev/null 2>&1; then
+    echo -e "${RED}Este script es para Termux.${RESET}"
+    exit 1
+  fi
+}
+
+install_deps() {
+  echo -e "${CYAN}[1/4] Instalando dependencias...${RESET}"
+  pkg update -y >/dev/null 2>&1 || true
+  pkg install -y git curl python python-pip jq dnsutils whois openssl > /dev/null 2>&1 || true
+  echo -e "${GREEN}Hecho.${RESET}"
+}
+
+ensure_tools() {
+  mkdir -p ~/tools
+  cd ~/tools || exit 1
+
+  if [ ! -d "sherlock" ]; then
+    echo -e "${CYAN}[2/4] Instalando Sherlock...${RESET}"
+    git clone https://github.com/sherlock-project/sherlock.git >/dev/null 2>&1 || true
+  fi
+
+  if [ ! -d "Sublist3r" ]; then
+    echo -e "${CYAN}[3/4] Instalando Sublist3r...${RESET}"
+    git clone https://github.com/aboul3la/Sublist3r.git >/dev/null 2>&1 || true
+  fi
+
+  if [ -d ~/tools/sherlock ]; then
+    cd ~/tools/sherlock && python3 -m pip install -q -r requirements.txt >/dev/null 2>&1 || true
+  fi
+
+  if [ -d ~/tools/Sublist3r ]; then
+    cd ~/tools/Sublist3r && python3 -m pip install -q -r requirements.txt >/dev/null 2>&1 || true
+  fi
+
+  echo -e "${GREEN}Herramientas listas.${RESET}"
+}
+
+show_header() {
+  clear
+  echo -e "${CYAN}════════════════════════════════════════════════════════════${RESET}"
+  echo -e "${GREEN}OSINT MASTER LEGAL${RESET}"
+  echo -e "${CYAN}════════════════════════════════════════════════════════════${RESET}"
+  echo
+}
+
+menu() {
+  show_header
+  echo -e "${MAGENTA}[01]${RESET} WHOIS"
+  echo -e "${MAGENTA}[02]${RESET} DNS Lookup"
+  echo -e "${MAGENTA}[03]${RESET} Subdominios"
+  echo -e "${MAGENTA}[04]${RESET} Email en fugas"
+  echo -e "${MAGENTA}[05]${RESET} Geolocalizar IP"
+  echo -e "${MAGENTA}[06]${RESET} Buscar usuario"
+  echo -e "${MAGENTA}[07]${RESET} Perfil público"
+  echo -e "${MAGENTA}[08]${RESET} Búsqueda inversa"
+  echo -e "${MAGENTA}[09]${RESET} Metadatos EXIF"
+  echo -e "${MAGENTA}[10]${RESET} Mi IP"
+  echo -e "${MAGENTA}[00]${RESET} Salir"
+  echo
+  echo -ne "${CYAN}Opción: ${RESET}"
+  read -r opt
+  echo
+  case "$opt" in
+    1) whois_domain ;;
+    2) dns_lookup ;;
+    3) subdomain_enum ;;
+    4) pwned_email ;;
+    5) ip_lookup ;;
+    6) username_search ;;
+    7) public_profile_search ;;
+    8) reverse_image ;;
+    9) exif_check ;;
+    10) my_ip ;;
+    0) exit 0 ;;
+    *) echo -e "${RED}Inválido.${RESET}"; sleep 1 ;;
+  esac
+  menu
+}
+
+whois_domain() {
+  show_header
+  read -p "Dominio: " domain
+  [ -n "$domain" ] || return
+  whois "$domain" 2>/dev/null | head -40
+  echo && read -p "Enter..."
+}
+
+dns_lookup() {
+  show_header
+  read -p "Dominio: " domain
+  [ -n "$domain" ] || return
+  echo -e "${GREEN}A Records:${RESET}"
+  nslookup -type=A "$domain" 8.8.8.8 2>/dev/null || echo "N/A"
+  echo && read -p "Enter..."
+}
+
+subdomain_enum() {
+  show_header
+  read -p "Dominio: " domain
+  [ -n "$domain" ] || return
+  cd ~/tools/Sublist3r 2>/dev/null || return
+  python3 sublist3r.py -d "$domain" 2>/dev/null | head -200
+  echo && read -p "Enter..."
+}
+
+pwned_email() {
+  show_header
+  read -p "Email: " email
+  [ -n "$email" ] || return
+  curl -s -A "Mozilla" "https://haveibeenpwned.com/api/v3/breachedaccount/$email" 2>/dev/null || echo "N/A"
+  echo && read -p "Enter..."
+}
+
+ip_lookup() {
+  show_header
+  read -p "IP: " ip
+  [ -n "$ip" ] || return
+  curl -s "http://ip-api.com/json/$ip" 2>/dev/null || echo "N/A"
+  echo && read -p "Enter..."
+}
+
+username_search() {
+  show_header
+  read -p "Usuario: " user
+  [ -n "$user" ] || return
+  cd ~/tools/sherlock 2>/dev/null || return
+  python3 sherlock.py "$user" 2>/dev/null
+  echo && read -p "Enter..."
+}
+
+public_profile_search() {
+  show_header
+  echo "Solo información pública"
+  read -p "Nombre: " name
+  [ -n "$name" ] || return
+  echo "site:facebook.com \"$name\""
+  echo && read -p "Enter..."
+}
+
+reverse_image() {
+  show_header
+  read -p "URL imagen: " img
+  echo "Google Images: https://images.google.com"
+  echo && read -p "Enter..."
+}
+
+exif_check() {
+  show_header
+  read -p "URL imagen: " img
+  curl -s "$img" -o /tmp/img.jpg 2>/dev/null
+  exiftool /tmp/img.jpg 2>/dev/null || echo "N/A"
+  rm -f /tmp/img.jpg
+  echo && read -p "Enter..."
+}
+
+my_ip() {
+  show_header
+  curl -fsSL https://api.ipify.org 2>/dev/null || echo "N/A"
+  echo && read -p "Enter..."
+}
+
+check_termux
+install_deps
+ensure_tools
+menu
+OSINT
+
+    chmod +x "$SCRIPTS_DIR/osint/osint-master.sh"
+    echo -e "${GREEN}[✓] OSINT Master guardado${RESET}"
+}
+
+# ═══════════════════════════════════════════════════════════════════════════
+# SCRIPT 2: VWARP COMPLETO
+# ═══════════════════════════════════════════════════════════════════════════
+
+create_vwarp() {
+    echo -e "${CYAN}[→] Creando VWARP Setup...${RESET}"
+    
+    cat > "$SCRIPTS_DIR/vwarp/vwarp-install.sh" << 'VWARP'
+#!/data/data/com.termux/files/usr/bin/bash
+
+GREEN='\033[0;92m'
+YELLOW='\033[0;93m'
+CYAN='\033[0;96m'
+RESET='\033[0m'
+
+echo -e "${CYAN}═════════════════════════════════════════${RESET}"
+echo -e "${GREEN}VWARP AUTO INSTALLATION${RESET}"
+echo -e "${CYAN}═════════════════════════════════════════${RESET}"
+echo
+
+echo -e "${CYAN}[01/06] Actualizando...${RESET}"
+pkg update -y > /dev/null 2>&1 && pkg upgrade -y > /dev/null 2>&1
+echo -e "${GREEN}OK${RESET}"
+
+echo -e "${CYAN}[02/06] Instalando dependencias...${RESET}"
+pkg install -y git golang make clang > /dev/null 2>&1
+echo -e "${GREEN}OK${RESET}"
+
+echo -e "${CYAN}[03/06] Clonando Vwarp...${RESET}"
+cd ~ || exit
+rm -rf Vwarp 2>/dev/null
+git clone https://github.com/voidr3aper-anon/Vwarp.git > /dev/null 2>&1
+cd Vwarp || exit
+echo -e "${GREEN}OK${RESET}"
+
+echo -e "${CYAN}[04/06] Compilando...${RESET}"
+export GOOS=android GOARCH=arm64 CGO_ENABLED=1
+go mod download > /dev/null 2>&1
+go mod tidy > /dev/null 2>&1
+go build -o vwarp . > /dev/null 2>&1
+
+if [ ! -f "vwarp" ]; then
+    echo "Compilación fallida"
+    exit 1
+fi
+echo -e "${GREEN}OK${RESET}"
+
+echo -e "${CYAN}[05/06] Instalando...${RESET}"
+chmod +x vwarp
+mkdir -p ~/.local/bin ~/.config/vwarp
+cp vwarp ~/.local/bin/
+
+if ! grep -q '~/.local/bin' ~/.bashrc 2>/dev/null; then
+    echo 'export PATH="$HOME/.local/bin:$PATH"' >> ~/.bashrc
+fi
+echo -e "${GREEN}OK${RESET}"
+
+echo -e "${CYAN}[06/06] Configuración...${RESET}"
+cat > ~/.config/vwarp/config.json << 'CONFIG'
+{
+  "warp": {"endpoint": "162.159.198.1:443"},
+  "bind": "127.0.0.1:8086",
+  "masque": {"enabled": true, "noize_preset": "light"},
+  "connection": {"auto_reconnect": true, "firewall_detection": true}
+}
+CONFIG
+
+echo -e "${GREEN}OK${RESET}"
+echo
+echo -e "${GREEN}✓ VWARP INSTALADO${RESET}"
+echo -e "${YELLOW}Usa: vwarp --help${RESET}"
+VWARP
+
+    chmod +x "$SCRIPTS_DIR/vwarp/vwarp-install.sh"
+    echo -e "${GREEN}[✓] VWARP Setup guardado${RESET}"
+}
+
+# ═══════════════════════════════════════════════════════════════════════════
+# SCRIPT 3: TERMUX SETUP COMPLETO
+# ═══════════════════════════════════════════════════════════════════════════
+
+create_termux_setup() {
+    echo -e "${CYAN}[→] Creando Termux Setup...${RESET}"
+    
+    cat > "$SCRIPTS_DIR/termux-setup/setup.sh" << 'SETUP'
+#!/data/data/com.termux/files/usr/bin/bash
+
+GREEN='\033[0;92m'
+YELLOW='\033[0;93m'
+CYAN='\033[0;96m'
+RESET='\033[0m'
+
+echo -e "${CYAN}═════════════════════════════════════════${RESET}"
+echo -e "${GREEN}TERMUX SETUP COMPLETO${RESET}"
+echo -e "${CYAN}═════════════════════════════════════════${RESET}"
+echo
+
+echo -e "${CYAN}[1/3] Actualizando paquetes...${RESET}"
+pkg update -y > /dev/null 2>&1
+pkg upgrade -y > /dev/null 2>&1
+echo -e "${GREEN}OK${RESET}"
+
+echo -e "${CYAN}[2/3] Instalando herramientas...${RESET}"
+pkg install -y git python python-pip clang make curl wget nano \
+    unzip zip jq golang nodejs ruby vim nano > /dev/null 2>&1
+echo -e "${GREEN}OK${RESET}"
+
+echo -e "${CYAN}[3/3] Configurando PATH...${RESET}"
+if ! grep -q '~/.local/bin' ~/.bashrc 2>/dev/null; then
+    mkdir -p ~/.local/bin
+    echo 'export PATH="$HOME/.local/bin:$PATH"' >> ~/.bashrc
+fi
+echo -e "${GREEN}OK${RESET}"
+
+echo
+echo -e "${GREEN}✓ Termux configurado${RESET}"
+SETUP
+
+    chmod +x "$SCRIPTS_DIR/termux-setup/setup.sh"
+    echo -e "${GREEN}[✓] Termux Setup guardado${RESET}"
+}
+
+# ═══════════════════════════════════════════════════════════════════════════
+# SCRIPT 4: MENÚ PRINCIPAL
+# ═══════════════════════════════════════════════════════════════════════════
+
+create_main_menu() {
+    echo -e "${CYAN}[→] Creando menú principal...${RESET}"
+    
+    cat > "$SCRIPTS_DIR/menu.sh" << 'MENU'
+#!/data/data/com.termux/files/usr/bin/bash
+
+RED='\033[0;91m'
+GREEN='\033[0;92m'
+YELLOW='\033[0;93m'
+MAGENTA='\033[0;95m'
+CYAN='\033[0;96m'
+RESET='\033[0m'
+
+SCRIPTS_DIR="$HOME/.scripts"
+
+header() {
+    clear
+    echo -e "${CYAN}════════════════════════════════════════════════════════════${RESET}"
+    echo -e "${GREEN}MIS SCRIPTS${RESET}"
+    echo -e "${CYAN}════════════════════════════════════════════════════════════${RESET}"
+    echo
+}
+
+menu() {
+    header
+    echo -e "${MAGENTA}[01]${RESET} ${YELLOW}OSINT Master (Info Pública)${RESET}"
+    echo -e "${MAGENTA}[02]${RESET} ${YELLOW}VWARP (Auto Connection)${RESET}"
+    echo -e "${MAGENTA}[03]${RESET} ${YELLOW}Termux Setup Completo${RESET}"
+    echo -e "${MAGENTA}[00]${RESET} ${RED}Salir${RESET}"
+    echo
+    echo -ne "${CYAN}Selecciona: ${RESET}"
+    read -r opt
+    
+    case "$opt" in
+        1) bash "$SCRIPTS_DIR/osint/osint-master.sh" ;;
+        2) bash "$SCRIPTS_DIR/vwarp/vwarp-install.sh" ;;
+        3) bash "$SCRIPTS_DIR/termux-setup/setup.sh" ;;
+        0) exit 0 ;;
+        *) echo -e "${RED}Inválido${RESET}"; sleep 1 ;;
+    esac
+    menu
+}
+
+menu
+MENU
+
+    chmod +x "$SCRIPTS_DIR/menu.sh"
+    echo -e "${GREEN}[✓] Menú principal creado${RESET}"
+}
+
+# ═══════════════════════════════════════════════════════════════════════════
+# CREAR ACCESO RÁPIDO
+# ═══════════════════════════════════════════════════════════════════════════
+
+create_shortcuts() {
+    echo -e "${CYAN}[→] Creando accesos rápidos...${RESET}"
+    
+    mkdir -p ~/.local/bin
+    
+    # Acceso rápido al menú
+    cat > ~/.local/bin/scripts-menu << 'SHORT'
+#!/data/data/com.termux/files/usr/bin/bash
+bash "$HOME/.scripts/menu.sh"
+SHORT
+    chmod +x ~/.local/bin/scripts-menu
+    
+    # Acceso rápido a OSINT
+    cat > ~/.local/bin/osint << 'SHORT'
+#!/data/data/com.termux/files/usr/bin/bash
+bash "$HOME/.scripts/osint/osint-master.sh"
+SHORT
+    chmod +x ~/.local/bin/osint
+    
+    # Acceso rápido a VWARP
+    cat > ~/.local/bin/install-vwarp << 'SHORT'
+#!/data/data/com.termux/files/usr/bin/bash
+bash "$HOME/.scripts/vwarp/vwarp-install.sh"
+SHORT
+    chmod +x ~/.local/bin/install-vwarp
+    
+    # Agregar al PATH si no está
+    if ! grep -q '~/.local/bin' ~/.bashrc 2>/dev/null; then
+        echo 'export PATH="$HOME/.local/bin:$PATH"' >> ~/.bashrc
+        source ~/.bashrc
+    fi
+    
+    echo -e "${GREEN}[✓] Accesos rápidos creados${RESET}"
+}
+
+# ═══════════════════════════════════════════════════════════════════════════
+# README
+# ═══════════════════════════════════════════════════════════════════════════
+
+create_readme() {
+    echo -e "${CYAN}[→] Creando README...${RESET}"
+    
+    cat > "$SCRIPTS_DIR/README.md" << 'README'
+# MIS SCRIPTS
+
+## Ubicación
+- `~/.scripts/` - Todos los scripts guardados
+
+## Scripts disponibles
+
+### 1. OSINT Master
+- **Ubicación**: `~/.scripts/osint/osint-master.sh`
+- **Acceso rápido**: `osint`
+- **Función**: Información pública (WHOIS, DNS, IPs, perfiles, etc)
+- **Uso**: `bash ~/.scripts/osint/osint-master.sh`
+
+### 2. VWARP Setup
+- **Ubicación**: `~/.scripts/vwarp/vwarp-install.sh`
+- **Acceso rápido**: `install-vwarp`
+- **Función**: Instalar VWARP con auto-conexión
+- **Uso**: `bash ~/.scripts/vwarp/vwarp-install.sh`
+
+### 3. Termux Setup
+- **Ubicación**: `~/.scripts/termux-setup/setup.sh`
+- **Función**: Configurar Termux completamente
+- **Uso**: `bash ~/.scripts/termux-setup/setup.sh`
+
+## Comandos rápidos
+```bash
+scripts-menu          # Abrir menú principal
+osint                 # Ejecutar OSINT
+install-vwarp         # Instalar VWARP
+
+nano ~/.scripts/osint/osint-master.sh
+nano ~/.scripts/vwarp/vwarp-install.sh
+cd ~/.scripts
+git pull
+
+echo -e "${GREEN}[✓] README creado${RESET}"
+
+══════════════════════════════════════════════════════════════════════════
+INSTALACIÓN COMPLETA
+══════════════════════════════════════════════════════════════════════════
+create_dirs
+sleep 1
+
+create_osint_master
+sleep 1
+
+create_vwarp
+sleep 1
+
+create_termux_setup
+sleep 1
+
+create_main_menu
+sleep 1
+
+create_shortcuts
+sleep 1
+
+create_readme
+sleep 1
+
+clear
+header
+
+echo -e "${GREEN}✓ INSTALACIÓN COMPLETADA${RESET}"
+echo
+echo -e "${YELLOW}📍 Ubicación: ${GREEN}~/.scripts/${RESET}"
+echo
+echo -e "${YELLOW}🚀 Comandos rápidos:${RESET}"
+echo -e "   ${GREEN}scripts-menu${RESET}      - Menú principal"
+echo -e "   ${GREEN}osint${RESET}             - OSINT Master"
+echo -e "   ${GREEN}install-vwarp${RESET}     - Instalar VWARP"
+echo
+echo -e "${YELLOW}📁 Ver scripts:${RESET}"
+echo -e "   ${GREEN}ls ~/.scripts/${RESET}"
+echo
+echo -e "${YELLOW}📖 Documentación:${RESET}"
+echo -e "   ${GREEN}cat ~/.scripts/README.md${RESET}"
+echo
+
+read -p "Presiona Enter para abrir el menú..."
+bash "$SCRIPTS_DIR/menu.sh"
+
+
+✅ **Crea accesos rápidos:**
+```bash
+scripts-menu          # Abre menú
+osint                 # Ejecuta OSINT
+install-vwarp         # Instala VWARP
+
+
+# Abrir menú
+scripts-menu
+
+# O ejecutar directamente
+osint
+install-vwarp
+
+# Ver todos los scripts
+ls ~/.scripts
+
+# Editar cualquier script
+nano ~/.scripts/osint/osint-master.sh
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
